@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "YouTube Destroyer",
-  "description": "This extension will combat YouTube addiction.",
+  "name": "Vex YT",
+  "description": "This extension combats YouTube addiction.",
   "version": "1.0",
 
   "browser_action": {
