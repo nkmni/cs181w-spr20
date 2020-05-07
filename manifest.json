@@ -1,15 +1,28 @@
 {
-  "manifest_version": 2,
-
-  "name": "Vex YT",
-  "description": "This extension combats YouTube addiction.",
+  "name": "vexYT",
   "version": "1.0",
-
-  "browser_action": {
-   "default_icon": "icon.png",
-   "default_popup": "popup.html"
+  "description": "Combat YouTube addiction!",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
   },
-  "permissions": [
-   "activeTab"
-   ]
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png",
+      "1024": "images/icon1024.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png",
+    "1024": "images/icon1024.png"
+  },
+  "manifest_version": 2
 }
