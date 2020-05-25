@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-      }
-    </style>
-  </head>
-  <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
-  </body>
+<head><title>My Test Extension Options</title></head>
+
+<html style="height: 300px; width: 300px;">
+<body style="height: 100%; width: 82%;"> 
+
+<style>
+body {
+  background-color: palegreen;
+  border-style: outset;
+  border-width: 7px;
+  border-color: red;
+  padding: 10px;
+  list-style: none;
+}
+</style>
+
+<body>
+Level of annoyingness:
+<select id="level_of_annoyingness">
+ <option value="low">low</option>
+ <option value="medium">medium</option>
+ <option value="high">high</option>
+ <option value="insanity">insanity</option>
+</select>
+
+<ul>
+	<li>
+		<label>
+		  <input type="checkbox" id="random_speed">
+		  random speed.
+		</label>
+	</li>
+	<li>
+		<label>
+		  <input type="checkbox" id="random_muting">
+		  Random muting
+		</label>
+	</li>
+</ul>
+
+<div id="status"></div>
+<button id="save">Save</button>
+<button id="pause">Pause</button>
+
+<script src="script.js"></script>
+<script src="popup.js"></script>
+</body>
 </html>
