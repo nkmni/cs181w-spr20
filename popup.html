@@ -18,7 +18,11 @@
 
 <table class="center">
   <tr>
-    <td class="option">Annoyance level:</td>
+    <td class="option"><label for="timer_duration">Timer duration (min):</label></td>
+    <td class="value"><input type="number" id="timer_duration" min="0" max="120"></td>
+  </tr>
+  <tr>
+    <td class="option"><label for="annoy_level">Annoyance level:</label></td>
     <td class="value">
       <select name="annoy_level" id="annoy_level">
         <option value="low">Low</option>
@@ -29,11 +33,11 @@
     </td>
   </tr>
   <tr>
-    <td class="option">Randomize speed?</td>
+    <td class="option"><label for="random_speed">Randomize speed?</label></td>
     <td class="value"><input type="checkbox" id="random_speed"></td>
   </tr>
   <tr>
-    <td class="option">Randomly mute?</td>
+    <td class="option"><label for="random_mute">Randomly mute?</label></td>
     <td class="value"><input type="checkbox" id="random_mute"></td>
   </tr>
 </table>
