@@ -1,5 +1,5 @@
 html {
-    height: 600px;
+    /* height: 600px; */
     width: 400px;
 }
 body {
@@ -11,7 +11,7 @@ body {
     border-color: white;
     padding: 10px;
     list-style: none;
-    font-family: "Lucida Console", Courier, monospace;
+    font-family: Candara, Roboto, Verdana, sans-serif;
     color: #E4B93B;
 }
 .center {
@@ -25,6 +25,18 @@ img.center {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+table.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+td.option {
+    text-align: right;
+}
+td.value {
+    text-align: left;
 }
 a:link, a:visited {
     color: #E4B93B;
@@ -42,18 +54,18 @@ a:active {
     text-decoration: underline;
 }
 button {
-    background-color: white; /* Green */
-    border: 2px solid #4CAF50;
+    background-color: white;
+    border: 2px solid #E4B93B;
     color: black;
-    padding: 15px 32px;
+    /*padding: 15px 32px;*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    transition-duration: 0.4s;
-    border-radius: 8px;
+    transition-duration: 0.2s;
+    border-radius: 4px;
 }
 button:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #E4B93B; /* Green */
     color: white;
 }

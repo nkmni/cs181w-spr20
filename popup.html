@@ -14,31 +14,33 @@
 <a href="https://www.youtube.com/channel/UCKzpoiO2-BMJyHHCOXJNTag">YouTube</a>
 </p>
 
-Set annoyance level:
-<select name="annoy_level" id="annoy_level">
- <option value="low">Low</option>
- <option value="medium">Medium</option>
- <option value="high">High</option>
- <option value="insane">Insane</option>
-</select>
+<hr>
 
-<ul>
-	<li>
-		<label>
-		  <input type="checkbox" id="random_speed">
-		  Randomize speed
-		</label>
-	</li>
-	<li>
-		<label>
-		  <input type="checkbox" id="random_mute">
-		  Randomly mute
-		</label>
-	</li>
-</ul>
+<table class="center">
+  <tr>
+    <td class="option">Annoyance level:</td>
+    <td class="value">
+      <select name="annoy_level" id="annoy_level">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="insane">Insane</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="option">Randomize speed?</td>
+    <td class="value"><input type="checkbox" id="random_speed"></td>
+  </tr>
+  <tr>
+    <td class="option">Randomly mute?</td>
+    <td class="value"><input type="checkbox" id="random_mute"></td>
+  </tr>
+</table>
+
 
 <div id="status"></div>
-<button id="save" class="center">Save Settings</button>
+<button id="save" class="center">Save settings</button>
 <button id="pause" class="center">Pause vexYT</button>
 
 <script src="script.js"></script>
