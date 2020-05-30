@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head><title>My Test Extension Options</title></head>
-
-<html style="height: 300px; width: 300px;">
-<body style="height: 100%; width: 82%;"> 
-
-<style>
-body {
-  background-color: palegreen;
-  border-style: outset;
-  border-width: 7px;
-  border-color: red;
-  padding: 10px;
-  list-style: none;
-}
-</style>
+<head>
+ <title>vexYT Options</title>
+ <link rel="stylesheet" href="popup.css">
+</head>
 
 <body>
-Level of annoyingness:
-<select id="level_of_annoyingness">
- <option value="low">low</option>
- <option value="medium">medium</option>
- <option value="high">high</option>
- <option value="insanity">insanity</option>
+<img src="images/icon1024.png" alt="vexYT icon" class="center">
+<h1 class="center">vexYT</h1>
+<p class="center">Combat YouTube Addiction<br />
+<a href="https://fb.me/VexYouTube">Facebook</a> &#8284; 
+<a href="https://www.youtube.com/channel/UCKzpoiO2-BMJyHHCOXJNTag">YouTube</a>
+</p
+
+Set annoyance level:
+<select id="annoy_level">
+ <option value="low">Low</option>
+ <option value="medium">Medium</option>
+ <option value="high">High</option>
+ <option value="insane">Insane</option>
 </select>
 
 <ul>
 	<li>
 		<label>
 		  <input type="checkbox" id="random_speed">
-		  random speed.
+		  Randomize speed
 		</label>
 	</li>
 	<li>
 		<label>
-		  <input type="checkbox" id="random_muting">
-		  Random muting
+		  <input type="checkbox" id="random_mute">
+		  Randomly mute
 		</label>
 	</li>
 </ul>
 
 <div id="status"></div>
-<button id="save">Save</button>
-<button id="pause">Pause</button>
+<button id="save" class="center">Save Settings</button>
+<button id="pause" class="center">Pause vexYT</button>
 
 <script src="script.js"></script>
 <script src="popup.js"></script>
