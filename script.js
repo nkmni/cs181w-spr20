@@ -1,3 +1,16 @@
+
+
+chrome.storage.sync.get({
+	'session_started': false
+}, function(items) {
+	if (!items.session_started) {
+		chrome.storage.sync.set({
+			'session_started': true,
+			'start_time': 0 //get current time
+		});
+    }
+});
+
 var player = document.getElementById("movie_player");
 //player.click();
 //player.mute();
