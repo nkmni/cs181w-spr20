@@ -30,6 +30,12 @@ img.center {
     margin-right: auto;
     width: 50%;
 }
+div#countdown {
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    font-weight: bolder;
+    color: white;
+}
 table.center {
     display: block;
     margin-left: auto;

@@ -26,6 +26,7 @@ img.center {
     margin-right: auto;
     width: 12.5%;
 }
+/*
 table.center {
     display: block;
     margin-left: auto;
@@ -38,6 +39,7 @@ td.option {
 td.value {
     text-align: left;
 }
+*/
 a:link, a:visited {
     color: #E4B93B;
     background-color: transparent;
@@ -53,11 +55,11 @@ a:active {
     background-color: transparent;
     text-decoration: underline;
 }
+/*
 button {
     background-color: white;
     border: 2px solid #E4B93B;
     color: black;
-    /*padding: 15px 32px;*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -66,6 +68,13 @@ button {
     border-radius: 4px;
 }
 button:hover {
-    background-color: #E4B93B; /* Green */
+    background-color: #E4B93B;
     color: white;
 }
+*/
+
+
+
+
+
+

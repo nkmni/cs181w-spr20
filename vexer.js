@@ -1,22 +1,11 @@
 
 
-chrome.storage.sync.get({
-	'session_started': false
-}, function(items) {
-	if (!items.session_started) {
-		chrome.storage.sync.set({
-			'session_started': true,
-			'start_time': 0 //get current time
-		});
-    }
-});
-
 var player = document.getElementById("movie_player");
 //player.click();
 //player.mute();
-//player.pauseVideo();
-player.setPlaybackRate(2);
-//player.seekTo(80)
+player.pauseVideo();
+//player.setPlaybackRate(2);
+player.seekTo(360);
 //player.toggleFullscreen(); //sometimes doesn't work to prevent non-user initiated fullscreen
 //player.unMute();
 //player.setVolume(25);
