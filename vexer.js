@@ -4,7 +4,7 @@ var duration = player.getDuration();
 
 function annoy() {
     randomSeekTime = Math.floor(Math.random() * duration);
-        player.seekTo(randomSeekTime);
+    player.seekTo(randomSeekTime);
 }
 
 setInterval(annoy, 1000);

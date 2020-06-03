@@ -23,9 +23,9 @@ function decrement_timer() {
     });
 }
 
-interval_id = null;
-yt_pattern = /:\/\/.*\.youtube\.com\//i;
-yt_active = false;
+var interval_id = null;
+var yt_pattern = /:\/\/.*\.youtube\.com\//i;
+var yt_active = false;
 
 function update_countdown() {
     console.log("updating countdown");
