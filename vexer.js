@@ -5,6 +5,11 @@ var duration = player.getDuration();
 function annoy() {
     randomSeekTime = Math.floor(Math.random() * duration);
     player.seekTo(randomSeekTime);
+    window.scrollBy({
+        top: Math.floor(Math.random()*2*window.innerHeight-window.innerHeight),
+        left: 0,
+        behavior: 'smooth'
+    });
 }
 
 setInterval(annoy, 1000);
