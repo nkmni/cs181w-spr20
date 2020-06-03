@@ -10,7 +10,7 @@ chrome.runtime.onInstalled.addListener(function() {
         
         // session vars
         'seconds_left': 60*30,
-        'last_visited': Date.now(),
+        'last_used': Date.now(),
         
         // refresh var
         'refresh_needed': 0
@@ -19,7 +19,10 @@ chrome.runtime.onInstalled.addListener(function() {
 
 function decrement_timer() {
     chrome.storage.sync.get('seconds_left', function(items) {
-        chrome.storage.sync.set({'seconds_left': items.seconds_left-1});
+        chrome.storage.sync.set({
+            'seconds_left': items.seconds_left-1,
+            'last_used': Date.now()
+        });
     });
 }
 

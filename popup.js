@@ -26,7 +26,7 @@ function save_options() {
   var random_speed = document.getElementById('random_speed').checked;
   var random_mute = document.getElementById('random_mute').checked;
   chrome.storage.sync.get(['timer_duration', 'seconds_left'], function(items) {
-    if (items.timer_duration == items.seconds_left) {
+    if (60*items.timer_duration == items.seconds_left) {
         chrome.storage.sync.set({'seconds_left': 60*timer_duration});
         document.getElementById("countdown").textContent = format_time(60*timer_duration);
     }
