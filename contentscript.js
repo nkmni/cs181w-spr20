@@ -1,14 +1,6 @@
 
-var injected = false;
-chrome.storage.sync.set({'session_started': true});
 
-function decrement_timer() {
-    if (!document.hidden) {
-        chrome.storage.sync.get('seconds_left', function(items) {
-            chrome.storage.sync.set({'seconds_left': items.seconds_left-1});
-        });
-    }
-}
+var injected = false;
 
 function inject_vexer(changes, namespace) {
     if (injected) return;
@@ -25,11 +17,15 @@ function inject_vexer(changes, namespace) {
 }
 
 function refresh_needed(changes, namespace) {
-    if ("refresh_needed" in changes && namespace == "sync") {
+    if ("refresh_needed" in changes && namespace == "sync")
         location.reload(true);
-    }
 }
 
-setInterval(decrement_timer, 1000);
+yt_watch_pattern = /:\/\/.*\.youtube\.com\/watch/i;
+
+if (yt_watch_pattern.test(window.location.href)) {
+    console.log('matched watch pattern');
+    chrome.storage.onChanged.addListener(inject_vexer);
+}
+    
 chrome.storage.onChanged.addListener(refresh_needed);
-chrome.storage.onChanged.addListener(inject_vexer);

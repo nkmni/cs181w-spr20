@@ -90,8 +90,15 @@ function reset_clicked() {
 
 function update_countdown(changes, namespace) {
     if ("seconds_left" in changes && namespace == "sync") {
-        var storageChange = changes.seconds_left;
-        document.getElementById("countdown").textContent = format_time(storageChange.newValue);
+        var seconds_left = changes.seconds_left.newValue;
+        countdown = document.getElementById("countdown");
+        countdown.textContent = format_time(seconds_left);
+        if (seconds_left < 0) {
+            if (seconds_left % 2)
+                countdown.style.color = "red";
+            else
+                countdown.style.color = "yellow";
+        }
     }
 }
 

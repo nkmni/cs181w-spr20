@@ -2,7 +2,7 @@
   "name": "vexYT",
   "version": "1.0",
   "description": "Combat YouTube addiction!",
-  "permissions": ["activeTab", "declarativeContent", "storage", "*://*.youtube.com/watch*"],
+  "permissions": ["tabs", "activeTab", "declarativeContent", "storage", "*://*.youtube.com/*"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
@@ -27,8 +27,8 @@
   "options_page": "options.html",
   "manifest_version": 2,
   "content_scripts": [{
-    "matches": ["*://*.youtube.com/watch*"],
+    "matches": ["*://*.youtube.com/*"],
     "js": ["contentscript.js"]
   }],
-  "web_accessible_resources": ["script.js"]
+  "web_accessible_resources": ["vexer.js"]
 }
