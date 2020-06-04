@@ -1,5 +1,5 @@
 html {
-    /* height: 600px; */
+    //height: 600px;
     width: 400px;
 }
 body {
@@ -40,10 +40,13 @@ table.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 75%;
+    table-layout: fixed;
 }
 table, th, td {
-    border: 1px solid white;
+    //border: 1px solid white;
+}
+td {
+    width: 10%;
 }
 td.name {
     text-align: right;
@@ -68,17 +71,17 @@ a:active {
 }
 button {
     background-color: white;
-    border: 2px solid #E4B93B;
+    border: 3px solid #E4B93B;
     color: black;
-    /*padding: 15px 32px;*/
+    //padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     transition-duration: 0.2s;
-    border-radius: 4px;
+    border-radius: 6px;
 }
 button:hover {
-    background-color: #E4B93B; /* Green */
+    background-color: #E4B93B;
     color: white;
 }

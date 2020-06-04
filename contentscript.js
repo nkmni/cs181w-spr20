@@ -4,8 +4,8 @@ var injected = false;
 
 function inject_vexer(changes, namespace) {
     if (injected) return;
-    if ("seconds_left" in changes && namespace == "sync") {
-        var time_remaining = changes.seconds_left.newValue;
+    if ("session_left" in changes && namespace == "sync") {
+        var time_remaining = changes.session_left.newValue;
         chrome.storage.sync.get('paused', function(items) {
             if (time_remaining < 0 &&
                 yt_watch_pattern.test(window.location.href) &&
