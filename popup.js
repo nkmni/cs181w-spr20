@@ -2,8 +2,7 @@
 
 function format_time(seconds_left) {
     var negate = seconds_left < 0;
-    if (negate)
-        seconds_left *= -1;
+    if (negate) seconds_left *= -1;
     var hours = (seconds_left / 3600) | 0;
     var minutes = ((seconds_left - 3600*hours) / 60) | 0;
     var seconds = seconds_left % 60;
@@ -11,9 +10,18 @@ function format_time(seconds_left) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
     var time_string = hours + minutes + ":" + seconds;
-    if (negate) 
-        time_string = '-' + time_string;
+    if (negate) time_string = '-' + time_string;
     return time_string;
+}
+
+function update_countdown_div(seconds_left) {
+    countdown = document.getElementById("countdown");
+    countdown.textContent = format_time(seconds_left);
+    if (seconds_left < 0) {
+        if (seconds_left % 2) countdown.style.color = "red";
+        else countdown.style.color = "yellow";
+    } else
+        countdown.style.color = "white";
 }
 
 //var player = document.getElementById("movie_player");
@@ -28,7 +36,8 @@ function save_options() {
   chrome.storage.sync.get(['timer_duration', 'seconds_left'], function(items) {
     if (60*items.timer_duration == items.seconds_left) {
         chrome.storage.sync.set({'seconds_left': 60*timer_duration});
-        document.getElementById("countdown").textContent = format_time(60*timer_duration);
+        //document.getElementById("countdown").textContent = format_time(60*timer_duration);
+        update_countdown_div(60*timer_duration);
     }
   });
   chrome.storage.sync.set({
@@ -40,8 +49,7 @@ function save_options() {
   // Update status to let user know options were saved.
   var status = document.getElementById('status');
   status.textContent = 'Options saved';
-  if (invalid_duration)
-      status.textContent += ' (0 < timer < 120)';
+  if (invalid_duration) status.textContent += ' (0 < timer < 120)';
   setTimeout(function() { status.textContent = ''; }, 2000);
 }
 
@@ -62,16 +70,19 @@ function load_popup() {
     document.getElementById('random_speed').checked = items.random_speed;
     document.getElementById('random_mute').checked = items.random_mute;
     document.getElementById('pause').textContent = items.paused ? 'Resume' : 'Pause';
-    document.getElementById('countdown').textContent = format_time(items.seconds_left);
+    //document.getElementById('countdown').textContent = format_time(items.seconds_left);
+    update_countdown_div(items.seconds_left);
   });
 }
 
 function pause_clicked() {
     chrome.storage.sync.get(['paused', 'refresh_needed'], function(items) {
       var new_paused = !items.paused;
-      chrome.storage.sync.set({'paused': new_paused});
       document.getElementById('pause').textContent = new_paused ? 'Resume' : 'Pause';
-      chrome.storage.sync.set({'refresh_needed': items.refresh_needed+1});
+      chrome.storage.sync.set({
+        'paused': new_paused,
+        'refresh_needed': items.refresh_needed+1
+      });
     });
 }
 
@@ -85,18 +96,10 @@ function reset_clicked() {
     });
 }
 
-
 function update_countdown(changes, namespace) {
     if ("seconds_left" in changes && namespace == "sync") {
         var seconds_left = changes.seconds_left.newValue;
-        countdown = document.getElementById("countdown");
-        countdown.textContent = format_time(seconds_left);
-        if (seconds_left < 0) {
-            if (seconds_left % 2)
-                countdown.style.color = "red";
-            else
-                countdown.style.color = "yellow";
-        }
+        update_countdown_div(seconds_left);
     }
 }
 

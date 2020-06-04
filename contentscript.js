@@ -6,13 +6,18 @@ function inject_vexer(changes, namespace) {
     if (injected) return;
     if ("seconds_left" in changes && namespace == "sync") {
         var time_remaining = changes.seconds_left.newValue;
-        if (time_remaining < 0 && yt_watch_pattern.test(window.location.href)) {
-            var s = document.createElement('script');
-            s.src = chrome.extension.getURL('vexer.js');
-            s.onload = function() { this.remove(); };
-            (document.head||document.documentElement).appendChild(s);
-            injected = true;
-        }
+        chrome.storage.sync.get('paused', function(items) {
+            if (time_remaining < 0 &&
+                yt_watch_pattern.test(window.location.href) &&
+                !items.paused) {
+                
+                var s = document.createElement('script');
+                s.src = chrome.extension.getURL('vexer.js');
+                s.onload = function() { this.remove(); };
+                (document.head||document.documentElement).appendChild(s);
+                injected = true;
+            }
+        });
     }
 }
 

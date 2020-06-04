@@ -16,17 +16,45 @@
 
 <hr />
 
-<div id="countdown" class="center">30:00</div>
+<table id="countdown" class="center">
+ <tr>
+  <th colspan="2">Countdown</th>
+ </tr>
+ <tr>
+  <td class="name">Daily:</td>
+  <td class="value"><div id="daily_countdown">30:00</div></td>
+ </tr>
+ <tr>
+  <td class="name">Session:</td>
+  <td class="value"><div id="countdown">30:00</div></td>
+ </tr>
+ <tr>
+  <td class="name">Interval:</td>
+  <td class="value"><div id="interval_countdown">30:00</div></td>
+ </tr>
+</table>
 
 <hr />
 
 <table class="center">
   <tr>
-    <td class="option"><label for="timer_duration">Timer (min):</label></td>
+   <th colspan="2">Timer Options (minutes)</th>
+  </tr>
+  <tr>
+    <td class="name"><label for="daily_duration">Daily limit:</label></td>
+    <td class="value"><input type="number" id="daily_duration" value="30" min="0" max="120"></td>
+  </tr>
+  <tr>
+    <td class="name"><label for="timer_duration">Session limit:</label></td>
     <td class="value"><input type="number" id="timer_duration" value="30" min="0" max="120"></td>
   </tr>
   <tr>
-    <td class="option"><label for="annoy_level">Annoyance level:</label></td>
+    <td class="name"><label for="interval_duration">Interval minimum:</label></td>
+    <td class="value"><input type="number" id="interval_duration" value="30" min="0" max="120"></td>
+  </tr>
+  <!--
+  <tr>
+    <td class="name"><label for="annoy_level">Annoyance level:</label></td>
     <td class="value">
       <select name="annoy_level" id="annoy_level">
         <option value="low">Low</option>
@@ -37,13 +65,14 @@
     </td>
   </tr>
   <tr>
-    <td class="option"><label for="random_speed">Randomize speed?</label></td>
+    <td class="name"><label for="random_speed">Randomize speed?</label></td>
     <td class="value"><input type="checkbox" id="random_speed"></td>
   </tr>
   <tr>
-    <td class="option"><label for="random_mute">Randomly mute?</label></td>
+    <td class="name"><label for="random_mute">Randomly mute?</label></td>
     <td class="value"><input type="checkbox" id="random_mute"></td>
   </tr>
+  -->
 </table>
 
 

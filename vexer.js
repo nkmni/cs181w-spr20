@@ -1,6 +1,5 @@
 
 var player = document.getElementById("movie_player");
-var duration = player.getDuration();
 
 function annoy_jump() {
     randomSeekTime = Math.floor(Math.random() * duration);
@@ -15,8 +14,11 @@ function annoy_scroll() {
     });
 }
 
-setInterval(annoy_jump, 1000);
-//setInterval(annoy_scroll, 2000);
+if (player !== null) {
+    var duration = player.getDuration();
+    setInterval(annoy_jump, 1000);
+    //setInterval(annoy_scroll, 2000);
+}
 
 /*
 var player = document.getElementById("movie_player");
