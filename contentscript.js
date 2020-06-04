@@ -4,13 +4,11 @@ var injected = false;
 
 function inject_vexer(changes, namespace) {
     if (injected) return;
-    if ("session_left" in changes && namespace == "sync") {
-        var time_remaining = changes.session_left.newValue;
+    if (namespace == "sync" &&
+        ("daily_left" in changes && changes.daily_left.newValue < 0 ||
+         "session_left" in changes && changes.session_left.newValue < 0)) {
         chrome.storage.sync.get('paused', function(items) {
-            if (time_remaining < 0 &&
-                yt_watch_pattern.test(window.location.href) &&
-                !items.paused) {
-                
+            if (yt_watch_pattern.test(window.location.href) && !items.paused) {
                 var s = document.createElement('script');
                 s.src = chrome.extension.getURL('vexer.js');
                 s.onload = function() { this.remove(); };
@@ -22,8 +20,10 @@ function inject_vexer(changes, namespace) {
 }
 
 function refresh_needed(changes, namespace) {
-    if ("refresh_needed" in changes && namespace == "sync")
+    if ("refresh_needed" in changes && namespace == "sync") {
+        //injected = false; // not sure if necessary
         location.reload(true);
+    }
 }
 
 chrome.storage.onChanged.addListener(inject_vexer);
