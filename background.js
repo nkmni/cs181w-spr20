@@ -10,7 +10,12 @@ function daily_reset() {
         });
     });
     in_session = false;
-    setTimeout(daily_reset, 24*60*60*1000);
+    var now = new Date();
+    //var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
+    var millis_till_midnight = 2*60*1000;
+    if (millis_till_midnight <= 0)
+         millis_till_midnight += 24*60*60*1000; // it's after 10am, try 10am tomorrow.
+    setTimeout(daily_reset, millis_till_midnight);
 }
 
 chrome.runtime.onInstalled.addListener(function() {
@@ -32,8 +37,8 @@ chrome.runtime.onInstalled.addListener(function() {
     var now = new Date();
     //var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
     var millis_till_midnight = 2*60*1000;
-    if (millis_till_midnight < 0)
-         millis_till_midnight += 86400000; // it's after 10am, try 10am tomorrow.
+    if (millis_till_midnight <= 0)
+         millis_till_midnight += 24*60*60*1000; // it's after 10am, try 10am tomorrow.
     setTimeout(daily_reset, millis_till_midnight);
 });
 
@@ -48,7 +53,7 @@ function decrement_yt_timers() {
     });
 }
 
-function decrement_inactive_timer() {
+function decrement_interval_timer() {
     chrome.storage.sync.get(['session_limit', 'daily_left', 'session_left', 'interval_left', 'paused'], function(items) {
         if (!items.paused && in_session && items.daily_left > 0) {
             chrome.storage.sync.set({
@@ -91,7 +96,7 @@ function update_countdown() {
             if (!yt_active) {
                 yt_active = true;
                 yt_interval_id = setInterval(decrement_yt_timers, 1000);
-                clearInterval(decrement_inactive_timer);
+                clearInterval(inactive_interval_id);
                 chrome.storage.sync.get('min_interval', function(items) {
                     chrome.storage.sync.set({'interval_left': 60*items.min_interval});
                 });
@@ -101,7 +106,7 @@ function update_countdown() {
             if (yt_active) {
                 yt_active = false;
                 if (in_session)
-                    inactive_interval_id = setInterval(decrement_inactive_timer, 1000);
+                    inactive_interval_id = setInterval(decrement_interval_timer, 1000);
                 clearInterval(yt_interval_id);
             }
         }
