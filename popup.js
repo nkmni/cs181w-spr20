@@ -47,24 +47,30 @@ function update_countdown_div(seconds_left, category) {
 // Saves options to chrome.storage
 function save_options() {
   var daily_elem = document.getElementById('daily_limit');
-  var daily_limit = daily_elem.value;
+  var daily_limit = parseInt(daily_elem.value, 10);
   var invalid_daily = (daily_limit < MIN_DAILY_TIME) || (daily_limit > MAX_DAILY_TIME);
   daily_limit = daily_limit > MAX_DAILY_TIME ? MAX_DAILY_TIME : daily_limit;
   daily_limit = daily_limit < MIN_DAILY_TIME ? MIN_DAILY_TIME : daily_limit;
   
   var session_elem = document.getElementById('session_limit');
-  var session_limit = session_elem.value;
+  var session_limit = parseInt(session_elem.value, 10);
   var invalid_session = (session_limit < MIN_SESSION_TIME) || (session_limit > MAX_SESSION_TIME);
   session_limit = session_limit > MAX_SESSION_TIME ? MAX_SESSION_TIME : session_limit;
   session_limit = session_limit < MIN_SESSION_TIME ? MIN_SESSION_TIME : session_limit;
 
   var interval_elem = document.getElementById('min_interval');
-  var min_interval = interval_elem.value;
+  var min_interval = parseInt(interval_elem.value, 10);
   var invalid_interval = min_interval < MIN_INTERVAL;
   min_interval = min_interval < MIN_INTERVAL ? MIN_INTERVAL : min_interval;
   
-  var invalid_relative = session_limit > daily_limit;
+  console.log("s before: "+session_limit);
+  console.log("d before: "+daily_limit);
+  
+  var invalid_relative = (session_limit > daily_limit);
   if (invalid_relative) session_limit = daily_limit;
+  
+  console.log("s after: "+session_limit);
+  console.log("d after: "+daily_limit);
   
   daily_elem.value = daily_limit;
   session_elem.value = session_limit;
@@ -88,7 +94,7 @@ function save_options() {
     status.textContent += '\r\n(interval > 60)!';
   if (invalid_relative)
     status.textContent += '\r\n(session < daily)!';
-  setTimeout(function() { status.textContent = ''; }, 4000);
+  setTimeout(function() { status.textContent = ''; }, 2000);
 }
 
 // Restores select box and checkbox state using the preferences
