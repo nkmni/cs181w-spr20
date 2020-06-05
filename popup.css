@@ -25,9 +25,6 @@ body {
     text-align: center;
 }
 img.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
 }
 table#countdown {
@@ -37,22 +34,19 @@ table#countdown {
     color: white;
 }
 table.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    table-layout: fixed;
+    display: table;
 }
-table, th, td {
-    //border: 1px solid white;
-}
-td {
-    width: 10%;
+table {
+    //border: 1px solid #E4B93B;
 }
 td.name {
     text-align: right;
 }
 td.value {
     text-align: left;
+}
+input[type=number] {
+    width: 40px;
 }
 a:link, a:visited {
     color: #E4B93B;

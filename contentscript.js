@@ -20,10 +20,8 @@ function inject_vexer(changes, namespace) {
 }
 
 function refresh_needed(changes, namespace) {
-    if ("refresh_needed" in changes && namespace == "sync") {
-        //injected = false; // not sure if necessary
+    if ("refresh_needed" in changes && namespace == "sync")
         location.reload(true);
-    }
 }
 
 chrome.storage.onChanged.addListener(inject_vexer);

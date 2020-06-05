@@ -8,7 +8,7 @@ function annoy_jump() {
 
 function annoy_scroll() {
     window.scrollBy({
-        top: Math.floor(Math.random()*window.innerHeight),
+        top: Math.floor(window.innerHeight+Math.random()*window.innerHeight),
         left: 0,
         behavior: 'smooth'
     });
@@ -17,7 +17,7 @@ function annoy_scroll() {
 if (player !== null) {
     var duration = player.getDuration();
     setInterval(annoy_jump, 1000);
-    //setInterval(annoy_scroll, 2000);
+    setInterval(annoy_scroll, 4000);
 }
 
 /*

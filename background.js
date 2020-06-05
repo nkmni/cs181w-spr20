@@ -2,11 +2,12 @@
 var in_session = false;
 
 function daily_reset() {
-    chrome.storage.sync.get(['daily_limit', 'session_limit', 'min_interval'], function (items) {
+    chrome.storage.sync.get(['daily_limit', 'session_limit', 'min_interval', 'refresh_needed'], function (items) {
         chrome.storage.sync.set({
             'daily_left': 60*items.daily_limit,
             'session_left': 60*items.session_limit,
-            'interval_left': 60*items.min_interval
+            'interval_left': 60*items.min_interval,
+            'refresh_needed': items.refresh_needed+1
         });
     });
     in_session = false;
