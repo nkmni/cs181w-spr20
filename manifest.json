@@ -1,6 +1,6 @@
 {
   "name": "vexYT",
-  "version": "1.0",
+  "version": "0.0.0.1",
   "description": "Combat YouTube addiction!",
   "permissions": ["tabs", "activeTab", "declarativeContent", "storage", "*://*.youtube.com/*"],
   "background": {

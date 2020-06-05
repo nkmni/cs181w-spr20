@@ -3,7 +3,7 @@ let MIN_SESSION_TIME = 0;
 let MAX_SESSION_TIME = 60;
 let MIN_DAILY_TIME = 0;
 let MAX_DAILY_TIME = 120;
-let MIN_INTERVAL = .1; //60
+let MIN_INTERVAL = 60;
 
 function format_time(seconds_left) {
     var negate = seconds_left < 0;

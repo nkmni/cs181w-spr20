@@ -12,8 +12,8 @@ function daily_reset() {
     });
     in_session = false;
     var now = new Date();
-    //var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
-    var millis_till_midnight = 2*60*1000;
+    var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
+    //var millis_till_midnight = 2*60*1000;
     if (millis_till_midnight <= 0)
          millis_till_midnight += 24*60*60*1000; // it's after 10am, try 10am tomorrow.
     setTimeout(daily_reset, millis_till_midnight);
@@ -36,8 +36,8 @@ chrome.runtime.onInstalled.addListener(function() {
         'refresh_needed': 0
     });
     var now = new Date();
-    //var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
-    var millis_till_midnight = 2*60*1000;
+    var millis_till_midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999) - now;
+    //var millis_till_midnight = 2*60*1000;
     if (millis_till_midnight <= 0)
          millis_till_midnight += 24*60*60*1000; // it's after 10am, try 10am tomorrow.
     setTimeout(daily_reset, millis_till_midnight);
