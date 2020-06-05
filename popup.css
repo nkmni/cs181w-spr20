@@ -1,6 +1,8 @@
 html {
     //height: 600px;
     width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 body {
     height: 100%;

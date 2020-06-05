@@ -1,6 +1,6 @@
 
 let MIN_SESSION_TIME = 0;
-let MAX_SESSION_TIME = 30;
+let MAX_SESSION_TIME = 60;
 let MIN_DAILY_TIME = 0;
 let MAX_DAILY_TIME = 120;
 let MIN_INTERVAL = .1; //60
@@ -81,9 +81,9 @@ function save_options() {
   status.style.whiteSpace = "pre";
   status.textContent = 'Options saved';
   if (invalid_daily)
-    status.textContent += '\r\n(0 < daily < 120)!';
+    status.textContent += '\r\n(daily < 120)!';
   if (invalid_session)
-    status.textContent += '\r\n(0 < session < 60)!';
+    status.textContent += '\r\n(session < 60)!';
   if (invalid_interval)
     status.textContent += '\r\n(interval > 60)!';
   if (invalid_relative)
