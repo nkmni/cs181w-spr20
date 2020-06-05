@@ -24,13 +24,13 @@ chrome.runtime.onInstalled.addListener(function() {
         // settings
         'daily_limit': 60,
         'session_limit': 30,
-        'min_interval': 0.1, //60,
+        'min_interval': 60,
         'paused': false,
         
         // session vars
         'daily_left': 60*60,
         'session_left': 60*30,
-        'interval_left': 60*0.1,
+        'interval_left': 60*60,
         
         // refresh var
         'refresh_needed': 0
